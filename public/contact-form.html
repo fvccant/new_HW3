@@ -1,0 +1,118 @@
+
+<div ng-app="contactsApp" ng-controller="ValidationController">
+<div class="row" ng-hide="contact._id">
+  <div class="col-md-8">
+    <h1 class="line-orange-center">Create new contact</h1>
+  </div>
+    <br>
+</div>
+<div class="container" , style="background-color: #cce0ff">
+
+  <form class="well form-horizontal", name="validationForm", ng-submit="submitForm()" novalidate, style="background-color: #cce0ff" >
+    <fieldset>
+
+
+      <!-- Text input-->
+
+      <div class="form-group" ng-class="{ 'has-error' : validationForm.first_name.$invalid}">
+        <label class="col-md-4 control-label">First Name</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input  name="first_name" placeholder="First Name" class="form-control"  ng-model="contact.firstName" type="text" required>
+
+          </div>
+            <p ng-show="validationForm.first_name.$invalid" style="text-align:left;"class="help-block"> Required field</p>
+        </div>
+      </div>
+
+      <!-- Text input-->
+
+        <div class="form-group" ng-class="{ 'has-error' : validationForm.last_name.$invalid}">
+        <label class="col-md-4 control-label" >Last Name</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input name="last_name" placeholder="Last Name" class="form-control" ng-model="contact.lastName" type="text" required>
+          </div>
+            <p ng-show="validationForm.last_name.$invalid" style="text-align:left;"class="help-block"> Required field</p>
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+        <div class="form-group" ng-class="{ 'has-error' : validationForm.email.$invalid}">
+        <label class="col-md-4 control-label">E-Mail</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            <input name="email" placeholder="E-Mail Address" class="form-control" ng-model="contact.email" type="email" required>
+          </div>
+            <p ng-show="validationForm.email.$invalid" style="text-align:left;"class="help-block"> Required field</p>
+
+        </div>
+      </div>
+
+
+      <!-- Text input-->
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Phone (Work) #</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+            <input name="phone" placeholder="(561)867-5309" class="form-control" ng-model="contact.phone.work" type="text">
+          </div>
+        </div>
+      </div>
+
+      <!-- Text input-->
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Phone (Mobile) #</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+            <input name="phone" placeholder="(561)867-5309" class="form-control" ng-model="contact.phone.mobile" type="text">
+          </div>
+        </div>
+      </div>
+
+      <!-- Text input-->
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Address</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+            <input name="address" placeholder="Address" class="form-control" ng-model="contact.address" type="text">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Twitter</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-twitter"></i></span>
+            <input name="phone" placeholder="Username" class="form-control" ng-model="contact.twitter" type="text">
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label"></label>
+        <div class="col-md-4">
+          <button type="submit" ng-disabled="validationForm.$invalid" class="btn btn-warning"  ng-click="saveContact(contact)" >Send <span class="glyphicon glyphicon-send"></span></button>
+          <button class="btn btn-default"  ng-click="back()"" >Back </button>
+
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+</div>
+</div>
+<!-- /.container -->
